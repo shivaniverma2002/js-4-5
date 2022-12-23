@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body onload="myFunction()">
+  <h1>Hello,I am here.</h1>
+  <h2>Hello World!</h2>
+  <form onsubmit="confirmInput()" action="https://www.w3schools.com/">
+    Enter your name: <input id="fname" type="text" size="20">
+    <input type="submit">
+  </form>
+  <p ondblclick="myfunction()">Doubleclick this paragraph to trigger a function.</p>
+
+  <p id="demo"></p>
+  Enter your name: <input type="text" id="Fname" onchange="upperCase()">
+  <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+  Enter your name: <input type="text" id="red" onkeyup="myAction()">
+  Enter your name: <input type="text" id="kname" onchange="lowerCase()">
+  <p id="lemo"></p>
+  <p id="remo"></p>
+  <div id="myDiv" style="border:1px solid">
+  <p>This is a paragraph in Div</p>
+  <span>This is a span in div</span>
+</div>
+<button type="button" onclick="changeStyle()">Click Me</button>
+<input type="button" onclick="getRandomInt()" value="Click Here">
+
+  <script>
+    // 1.find the duplicate in a string()
+    //reverse a string
+    const fruits = ["banana", "papaya", "orange"];
+    console.log(fruits.reverse());
+    //find the heighest and lowest value of array
+    const points = [40, 45, 39, 70];
+    console.log(myArrayMax(points));
+    function myArrayMax(arr) {
+      return Math.max.apply(null, arr);
+    }
+    const numbers = [1029, 1025, 1067, 1028];
+    console.log(myArrayMin(numbers));
+    function myArrayMin(arr) {
+      return Math.min.apply(null, arr);
+    }
+    //sorting of array
+    const names = ["Aradhya", "Rama", "Priyanka", "kavya"];
+    console.log(names.sort());
+    //employee  data structure:practice array of object
+
+    //display first 3 elements in an array
+    const color = ["red", "blue", "gray", "pink", "black"];
+    console.log(color.slice(2));
+    //remove 4th (index) element and add 2 element there
+    const veg = ["Carrot", "raddish", "lockey", "lemon", "mint"];
+    let removed = veg.splice(4, 2, "Brinjal", "potato");
+    console.log(removed);
+    console.log(veg);
+    //8.study events,onload,ondoubleclick, onsubmit, onchange, onkeyup, onkeydown
+    function myFunction() {
+      alert("Page is loaded");
+    }
+    function confirmInput() {
+      fname = document.forms[0].fname.value;
+      alert("Hello " + fname + "! You will now be redirected to www.w3Schools.com");
+    }
+    function myfunction() {
+      document.getElementById("demo").innerHTML = "Hello World";
+    }
+    function upperCase() {
+      const x = document.getElementById("Fname");
+      x.value = x.value.toUpperCase();
+    }
+    function myAction() {
+      var x = document.getElementById("red");
+      x.value = x.value.toUpperCase();
+    }
+
+    function lowerCase() {
+      const x = document.getElementById("kname");
+      x.value = x.value.toLowerCase();
+    }
+    //create parametrized method/function to multiply 3 numbers
+    const numbers1 = [45, 4, 9, 16, 25];
+    const numbers2 = numbers1.map(mymultiple);
+
+    document.getElementById("lemo").innerHTML = numbers2;
+
+    function mymultiple(value, index, array) {
+      return value * 3;
+    }
+    const num1 = [42, 4, 18, 16, 24];
+    const num2 = num1.map(mydivide);
+
+    document.getElementById("remo").innerHTML = num2;
+
+    function mydivide(value, index, array) {
+      return value / 2;
+    }
+   //create a parametised function divide two number
+   function divide(input1,input2){
+    var result=0;
+    s1=parseInt(input1);
+    s2=parseInt(input2);
+    if(s2!=0)
+    {
+      result=s1/s2;
+    }
+    return result;
+   }
+   console.log(divide(15,5));
+   //create a method to add background color to div element
+
+   function changeStyle(){
+        var element = document.getElementById("myDiv");
+        element.style.backgroundColor = "#00FF00";
+
+    }
+    function getRandomInt(min,max)
+    {
+      return Math.floor(Math.random()*(max-min))+min;
+    };
+    document.write(getRandomInt(1,12));
+    function decimals(n,d)
+    {
+      if((typeof n!=='number')||(typeof d!=='number'))
+      return false;
+      n=parseFloat(n)||0;
+      return n.toFixed(d);
+    }
+    console.log(decimals(2.100212,2));
+    //write function to convert negative number to positive number
+    function convert_possitive(a)
+    {
+      if(a<0)
+      {
+        a=a*-1;
+      }
+      return a;
+    }
+    var n=-10;
+    n=convert_possitive(n);
+    console.log(n);
+    function randombg(){
+      var x=Math.floor(Math.random()*256);
+      var y=Math.floor(Math.random()*256);
+       var z=Math.floor(Math.random()*256);
+         var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+ console.log(bgColor);
+  
+    document.body.style.background = bgColor;
+    }
+
+randombg();
+    
+  </script>
+
+</body>
+
+</html>
